@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shine</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="container">
+  <% if notice.present? %>
+    <asset class="alert alert-info"><%=notice%></asset>
+  <% end %>
+  <% if alert.present? %>
+    <asset class="alert alert-danger"><%=alert%></asset>
+  <% end %>  
+
+<%= yield %>
+
+</body>
+</html>

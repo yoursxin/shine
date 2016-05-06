@@ -1,0 +1,33 @@
+<h1>seach customer</h1>
+<section>
+  <%= form_for :customers, method: :get do |f| %>
+    <%= text_field_tag :keywords, nil, 
+      placehoder: ""%>
+    <%= submit_tag "find customers" %>
+  <% end %>
+</section>
+<section>
+  <table>
+    <thead>
+      <tr>
+        <td>First name</td>
+        <td>Last name</td>
+        <td>Email</td>
+        <td>Joined</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer|   %>
+        <tr>
+          <td><%=customer.first_name%></td>
+          <td><%=customer.last_name%></td>
+          <td><%=customer.email%></td>
+          <td><%=customer.created_at%></td>
+        </tr>
+
+      <% end %>
+
+    </tbody>
+
+  </table>
+</section>
