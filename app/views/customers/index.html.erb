@@ -1,13 +1,27 @@
-<h1>seach customer</h1>
-<section>
+<header>
+  <h2>seach customer</h2>  
+</header>
+
+<section class="search-form">
   <%= form_for :customers, method: :get do |f| %>
-    <%= text_field_tag :keywords, nil, 
-      placehoder: ""%>
-    <%= submit_tag "find customers" %>
+    <div class="input-group input-group-lg">
+      <%= label_tag :keywords, nil, class: "sr-only"%>
+      <%= text_field_tag :keywords, nil, 
+      placehoder: "First name, Last name, or Email Address", class: "form-control input-lg"%>
+      <span class="input-group_btn">
+        <%= submit_tag "find customers", class:  "btn btn-primary btn-lg"%>        
+      </span>
+    
+    </div>
+    
   <% end %>
 </section>
-<section>
-  <table>
+<section class="search-result">
+  <header>
+   <h3>Results</h3>
+  </header>
+
+  <table class="table table-striped">
     <thead>
       <tr>
         <td>First name</td>
