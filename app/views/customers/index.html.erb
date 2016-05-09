@@ -6,9 +6,9 @@
   <%= form_for :customers, method: :get do |f| %>
     <div class="input-group input-group-lg">
       <%= label_tag :keywords, nil, class: "sr-only"%>
-      <%= text_field_tag :keywords, nil, 
-      placehoder: "First name, Last name, or Email Address", class: "form-control input-lg"%>
-      <span class="input-group_btn">
+      <%= text_field_tag :keywords, @keywords, 
+      placeholder: "First name, Last name, or Email Address", class: "form-control input-lg"%>
+      <span class="input-group-btn">
         <%= submit_tag "find customers", class:  "btn btn-primary btn-lg"%>        
       </span>
     
@@ -16,7 +16,7 @@
     
   <% end %>
 </section>
-<section class="search-result">
+<section class="search-results">
   <header>
    <h3>Results</h3>
   </header>
@@ -24,10 +24,10 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <td>First name</td>
-        <td>Last name</td>
-        <td>Email</td>
-        <td>Joined</td>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Joined</th>
       </tr>
     </thead>
     <tbody>
