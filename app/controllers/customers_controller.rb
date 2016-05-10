@@ -3,6 +3,7 @@ class CustomersController < ApplicationController
   def index
     @page = (params[:page] || 0).to_i
     if params[:keywords].present?
+      @keywords = params[:keywords]
       @customers = Customer.where(" first_name like :first_name "+
                                   " or last_name like :last_name "+
                                   " or email like :email ",{
