@@ -13,13 +13,9 @@
              name="keywords"
              class="form-control input-lg"
              placeholder="First name, Last name, or Email Address"
-             ng-model="keywords">     
-      <span class="input-group-btn">
-        <button class="btn btn-primary btn-lg"
-                ng-click="search(keywords)">
-          Find customers
-        </button>              
-      </span>    
+             ng-model="keywords"
+             ng-change="search(keywords)">     
+         
     </div>
     </form>
     <h1 class="searchedFor" ng-if="searchedFor">
@@ -33,23 +29,22 @@
   </header>
   <%= render partial: "pager", locals: {keywords: @keywords, page: @page} %>
   <ol class="list-group">
-    <% @customers.each do |customer|%>
-    <li class="list-group-item clearfix">      
+   
+    <li class="list-group-item clearfix"
+      ng-repeat="customer in customers">      
       <h3 class="pull-right">
-        <small class="text-uppercase">Joined</small> <%=l customer.created_at.to_date%></h3>
+        <small class="text-uppercase">Joined</small> {{customer.created_at | date}}</h3>
       <h2>
-        <%=customer.first_name%><%=customer.last_name%>
-        <small><%=customer.username%></small>
+        {{customer.first_name}} {{customer.last_name}}
+        
+        <small>{{customer.username}}</small>
       </h2>
-      <h4><%=customer.email%></h4>
+      <h4>{{customer.email}}></h4>
       
     </li>
-    <% end %>
+    
   </ol>  
   <%= render partial: "pager", locals: {keywords: @keywords, page: @page} %>
 </section>
-<<<<<<< HEAD
-=======
 
->>>>>>> ff456eb285a09885b406a7be8ebf43263134dfca
 </article>

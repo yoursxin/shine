@@ -21,6 +21,12 @@ class CustomersController < ApplicationController
       @customers = []
     end
 
+    respond_to do |format|
+      format.html {}
+      format.json { render json: @customers}
+
+    end
+
 
 
     
