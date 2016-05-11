@@ -1,3 +1,6 @@
+<article ng-app="customers" ng-controller="CustomerSearchController">
+  
+
 <header>
   <h2>seach customer</h2>  
 </header>
@@ -18,6 +21,11 @@
         </button>              
       </span>    
     </div>
+    </form>
+    <h1 class="searchedFor" ng-if="searchedFor">
+      <small>Searched for: </small>{{searchedFor}}
+      
+    </h1>
 </section>
 <section class="search-results">
   <header>
@@ -40,3 +48,4 @@
   </ol>  
   <%= render partial: "pager", locals: {keywords: @keywords, page: @page} %>
 </section>
+</article>
