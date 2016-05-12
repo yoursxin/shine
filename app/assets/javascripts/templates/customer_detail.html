@@ -1,10 +1,40 @@
-<article class="customer-detail">
-  <h1>Customer {{customer.id}}</h1>
-  <h2>{{customer.first_name}} {{customer.last_name}}</h2>
-  <h3>{{customer.email}}</h3>
-  <h4>{{customer.username}}</h4>
-  <h5>
-    <small class="text-uppercase">Joined</small>
-    {{customer.created_dt | date }}
-  </h5>
-</article>
+
+<form>
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Customer</h1>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="first_name" class="sr-only">First name</label>
+            <input type="text" name="first_name" value="Bob"
+                  class="form-control">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="last_name" class="sr-only">Last name</label>
+            <input type="text" name="last_name" value="jone"
+                   class="form-control">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="username" class="sr-only">user name</label>
+          <input type="text" name="username" value="bob123"
+                 class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email" class="sr-only">Email</label>
+        <input type="text"  name="email" value="bob@123.com"
+               class="form-control">
+      </div>
+      <label for="joint">Joined</label>12/13/2004
+      <h2>Shipping address</h2>
+    </div>
+    <div class="col-md-6">
+      <h1>Billing info</h1>
+    </div>
+  </div>
+
+</form>
