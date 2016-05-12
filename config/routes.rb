@@ -55,6 +55,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   root 'dashboard#index'
-  resources :customers, only: [:index]
+  resources :customers, only: [:index, :show]
   get 'angular_test', to: "angular_test#index"
  end

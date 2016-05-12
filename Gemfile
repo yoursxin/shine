@@ -45,3 +45,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'bower-rails'
 gem 'faker'
+gem "angular-rails-templates"
+gem "sprockets", "~>2.0"
