@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  PAGE_SIZE = 10 
+  PAGE_SIZE = 10
   def index
     @page = (params[:page] || 0).to_i
     if params[:keywords].present?
@@ -15,7 +15,7 @@ class CustomersController < ApplicationController
                                   .limit(PAGE_SIZE)
 
 
-        
+
       puts "--hxx customers: #{@customers} "
     else
       @customers = []
@@ -25,13 +25,13 @@ class CustomersController < ApplicationController
       format.html {}
       format.json { render json: @customers}
 
-    end    
+    end
   end
 
   def show
-    customer = Customer.find(params[:id])
+    customer_detail = CustomerDetail.find(params[:id])
     respond_to do |format|
-      format.json {render json: customer}
+      format.json {render json: customer_detail}
     end
   end
 end
