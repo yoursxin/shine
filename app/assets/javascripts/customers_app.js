@@ -1,14 +1,15 @@
 var app = angular.module(
-  'customers', 
+  'customers',
   [
     'ngRoute',
+    'ngResource',
     'templates'
   ]
 );
 
 app.controller("CustomerSearchController", [
   "$scope","$http","$location",
-  function($scope, $http, $location){   
+  function($scope, $http, $location){
     var page = 0;
     $scope.customers = [];
     $scope.search = function(searchTerm){
@@ -55,17 +56,22 @@ app.config(["$routeProvider",
 ]);
 
 app.controller("CustomerDetailController", [
-  "$scope","$http","$routeParams",
-  function($scope, $http, $routeParams){
-    var customerId = $routeParams.id;
-    $scope.customer = {};
-    $http.get(
-      "/customers/"+ customerId + ".json"
-    ).then(function(response){
-      $scope.customer = response.data;      
-      }, function(response){
-        alert("There was a problem: "+ response.status);
-      }
-    );
+  "$scope","$routeParams","$resource",
+  function($scope, $routeParams, $resource){
+    $scope.customerId = $routeParams.id;
+
+    var Customer = $resource('/customers/:customerId.json');
+    $scope.customer = Customer.get({"customerId": $scope.customerId});
+
+  }
+]);
+
+app.controller("CustomerCreditcardController",[
+  "$scope", "$routeParams","$resource",
+  function($scope, $routeParams, $resource){
+    var CrediteCardInfo = $resource("/faking_billing.json");
+    $scope.setCardhoderId = function(cardholderId){
+      $scope.creditCard = CrediteCardInfo.get({"cardholder_id": cardholderId});
+    }
   }
 ]);
